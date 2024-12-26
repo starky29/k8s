@@ -7,7 +7,8 @@
 
 ------
 ## Решение:
-123
+![alt text](image-1.png)
+![alt text](image.png)
 ------
 ### Задание 2. Создать Service и подключить его к Pod
 
@@ -18,5 +19,6 @@
 
 ------
 ## Решение:
-
+![alt text](image-4.png)
+![alt text](image-3.png)
 ------
