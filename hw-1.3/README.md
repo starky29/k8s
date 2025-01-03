@@ -8,14 +8,13 @@
 
 ------
 ### Решение:
-1, 2, 3:
-![alt text](image-1.png)
-4:
-![alt text](image.png)
-5:
-
-![alt text](image-2.png)
-![alt text](image-3.png)
+- 1, 2, 3:
+- ![alt text](image-1.png)
+- 4:
+- ![alt text](image.png)
+- 5:
+- ![alt text](image-2.png)
+- ![alt text](image-3.png)
 ------
 ### Задание 2. Создать Deployment и обеспечить старт основного контейнера при выполнении условий
 
