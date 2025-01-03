@@ -23,9 +23,9 @@ spec:
           - name: HTTPS_PORT
             value: "11443"
         ports:
-          - name: http_port
+          - name: http-port
             containerPort: 1180
-          - name: https_ports
+          - name: https-ports
             containerPort: 11443
       - name: nginx
         image: nginx:latest
