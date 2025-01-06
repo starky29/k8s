@@ -9,7 +9,7 @@ spec:
     - name: nginx-port
       protocol: TCP
       port: 80
-      nodePort: 9001
+      nodePort: 30001
     - name: multitool
       protocol: TCP
       port: 8080
