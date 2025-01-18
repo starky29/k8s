@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netology-deployment
+  labels:
+    app: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: multytools
+        image: wbitt/network-multitool
+        env:
+          - name: HTTP_PORT
+            value: "8080"
+          - name: HTTPS_PORT
+            value: "11443"
+        ports:
+          - name: http-port
+            containerPort: 8080
+          - name: https-ports
+            containerPort: 11443
+        volumeMounts:
+        - name: vol
+          mountPath: /input
+      - name: busybox
+        image: busybox
+        command: ['sh', '-c', 'echo "test logs" + $(date) >> /output/test.txt, sleep 5']
+        volumeMounts:
+        - name: vol
+          mountPath: /output
+      volumes:
+      - name: vol
+        hostPath:
+          path: /opt/podsdata
+      restartPolicy: always
