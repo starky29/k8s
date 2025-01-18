@@ -1,21 +1,20 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
-  name: netology-deployment
+  name: demonset-netology
   labels:
-    app: myapp
+    app: multitool
 spec:
-  replicas: 3
   selector:
     matchLabels:
-      app: myapp
+      name: multitool
   template:
     metadata:
       labels:
-        app: myapp
+        name: multitool
     spec:
       containers:
-      - name: multytools
+      - name: multy
         image: wbitt/network-multitool
         env:
           - name: HTTP_PORT
@@ -28,15 +27,9 @@ spec:
           - name: https-ports
             containerPort: 11443
         volumeMounts:
-        - name: vol
-          mountPath: /input
-      - name: busybox
-        image: busybox
-        command: ['sh', '-c', 'while true; do echo "test logs - $(date)" >> /output/test.txt && sleep 5; done']
-        volumeMounts:
-        - name: vol
-          mountPath: /output
+        - name: varlog
+          mountPath: /nodelogs
       volumes:
-      - name: vol
+      - name: varlog
         hostPath:
-          path: /opt/podsdata
+          path: /var/log
