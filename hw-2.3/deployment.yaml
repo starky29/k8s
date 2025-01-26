@@ -19,7 +19,7 @@ spec:
         image: wbitt/network-multitool
         envFrom:
         - configMapRef:
-          name: env-config
+            name: env-config
         ports:
           - name: http-port
             containerPort: 8080

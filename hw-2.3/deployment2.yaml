@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+        volumeMounts:
+        - name: index
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: index
+        secret:
+          name: index
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: network-nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+    - name: nginx-port
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: nginx-https
+      protocol: TCP
+      port: 443
+      targetPort: 443      
+  type: ClusterIP
+  
