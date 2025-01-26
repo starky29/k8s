@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistantVolumeClaim
+metadata:
+  name: netology-pvc
+spec:
+  accessModes:
+    - ReadWrite
+  storageClaimName: ""
+  resources:
+    requests:
+      storage: 1Gi

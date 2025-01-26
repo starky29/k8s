@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistantVolume
+metadata:
+  name: netology-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWrite
+  persistantVolumeReclaimPolicy: Retain
+  storageClaimName: ""
+  hostPath:
+    path: "/mnt/data"
+  
