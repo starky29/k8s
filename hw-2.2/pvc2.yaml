@@ -4,7 +4,8 @@ metadata:
   name: netology-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
+  storageClassName: "microk8s-hostpath"
   resources:
     requests:
       storage: 1Gi
