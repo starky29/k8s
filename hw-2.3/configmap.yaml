@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-config
+data:
+  HTTP_PORT: "8080"
+  HTTPS_PORT: "11443"
+  index.html: |
+    <html>
+    <body>
+      <h1>Привет мир</h1>
+    </body>
+    </html>
