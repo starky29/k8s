@@ -3,10 +3,11 @@ kind: Ingress
 metadata:
   name: ingress
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - myingress.com
-    secretName: cer
+    secretName: https
   rules:
   - http:
       paths:
