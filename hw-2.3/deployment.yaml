@@ -17,17 +17,9 @@ spec:
       containers:
       - name: multytools
         image: wbitt/network-multitool
-        env:
-          - name: HTTP_PORT
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: HTTP_PORT
-          - name: HTTPS_PORTS
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: HTTP_PORTS
+        envFrom:
+        - configMapRef:
+          name: env-config
         ports:
           - name: http-port
             containerPort: 8080
@@ -37,7 +29,7 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
-        volumeMount:
+        volumeMounts:
         - name: env-config
           mountPath: /usr/share/nginx/html
       volumes:
