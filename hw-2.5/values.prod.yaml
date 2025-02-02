@@ -1,0 +1,4 @@
+namespace: app1
+name: prod
+image:
+  tag: 1.16
